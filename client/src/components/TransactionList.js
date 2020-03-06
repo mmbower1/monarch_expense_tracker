@@ -4,7 +4,9 @@ import Transaction from './Transaction';
 
 const TransactionList = () => {
     const initialState = {
-        transactions: []
+        transactions: [
+         
+        ]
       }
 
     return (

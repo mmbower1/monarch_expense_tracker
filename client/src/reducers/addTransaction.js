@@ -1,6 +1,8 @@
 import { ADD_TRANSACTION } from '../actions/types';
 
 const initialState = {
+  error: null,
+  loading: true,
   transactions: []
 };
 
