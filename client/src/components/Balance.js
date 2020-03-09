@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { numberWithCommas } from '../utils/format';
 
 const initialState = {
   transactions: []
 };
 
-const Balance = () => {
+const Balance = ({ transactions }) => {
   const amounts = initialState.transactions.map(transaction => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
   console.log('amounts: ', amounts)
@@ -13,9 +15,13 @@ const Balance = () => {
   return (
     <div>
       <h4>Your Balance</h4>
-      <h1>${total}</h1>
+      <h1>${numberWithCommas(total)}</h1>
     </div>
   )
 }
 
-export default Balance;
+const mapStateToProps = (state) => ({
+  transactions: console.log('balance state: ', state)
+});
+
+export default connect(mapStateToProps, { })(Balance);

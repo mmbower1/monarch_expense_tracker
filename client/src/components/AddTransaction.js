@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 // actions
 import { addTransaction } from '../actions/addTransaction';
 
-const AddTransaction = () => {
+const AddTransaction = ({ addTransaction, transaction }) => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
   
@@ -16,6 +16,7 @@ const AddTransaction = () => {
         text
       }
       addTransaction(newTransaction);
+      console.log('newTransaction: ', newTransaction)
     }
 
     return (
@@ -24,7 +25,7 @@ const AddTransaction = () => {
                 <h3>Add new transaction</h3>
                 <form onSubmit={(e) => onSubmit(e)}>
                     <div className="form-control">
-                        <label htmlFor="text">Text</label>
+                        <label htmlFor="text">Memo</label>
                         <input
                             type="text"
                             value={text}
@@ -50,4 +51,9 @@ const AddTransaction = () => {
     )
 }
 
-export default connect(null, { addTransaction })(AddTransaction)
+const mapStateToProps = (state) => ({
+    transaction: state.transaction,
+    log: console.log('AddTransaction state: ', state.transaction)
+})
+
+export default connect(mapStateToProps, { addTransaction })(AddTransaction)

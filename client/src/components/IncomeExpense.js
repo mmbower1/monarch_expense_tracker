@@ -1,6 +1,9 @@
-import React from 'react'
+import React from 'react';
+import { connect } from 'react-redux';
+import { numberWithCommas } from '../utils/format';
 
-const IncomeExpense = () => {
+const IncomeExpense = (props) => {
+    console.log('props: ', props);
     const initialState = {
         transactions: []
     }
@@ -21,17 +24,21 @@ const IncomeExpense = () => {
             <div>
                 <h4>Income</h4>
                 <p id="money-plus" className="money plus">
-                    {income}
+                    ${numberWithCommas(income)}
                 </p>
             </div>
             <div>
-                <h4>Expense</h4>
+                <h4>Expenses</h4>
                 <p id="money-minus" className="money minus">
-                    {expense}
+                    ${numberWithCommas(expense)}
                 </p>
             </div>
         </div>
     )
 }
 
-export default IncomeExpense
+const mapStateToProps = (state) => ({
+    state: console.log('income state: ', state)
+});
+
+export default connect(mapStateToProps, { })(IncomeExpense)
