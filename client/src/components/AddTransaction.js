@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { connect } from 'react-redux';
 // actions
-import { addTransaction } from '../actions/addTransaction';
+import { addTransaction } from '../actions/addTransaction'
 
-const AddTransaction = ({ addTransaction, transaction }) => {
+const AddTransaction = ({ addTransaction }) => {
     const [text, setText] = useState('');
     const [amount, setAmount] = useState(0);
   
@@ -51,9 +51,4 @@ const AddTransaction = ({ addTransaction, transaction }) => {
     )
 }
 
-const mapStateToProps = (state) => ({
-    transaction: state.transaction,
-    log: console.log('AddTransaction state: ', state.transaction)
-})
-
-export default connect(mapStateToProps, { addTransaction })(AddTransaction)
+export default connect(null, { addTransaction })(AddTransaction)

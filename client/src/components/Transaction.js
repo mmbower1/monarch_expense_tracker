@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { numberWithCommas } from '../utils/format'
-// actions
+import { numberWithCommas } from '../utils/format';
 import { deleteTransaction } from '../actions/deleteTransaction';
 
 const Transaction = ({ transaction }) => {
@@ -15,4 +14,8 @@ const Transaction = ({ transaction }) => {
     )
 }
 
-export default connect({ deleteTransaction })(Transaction)
+// const mapStateToProps = (state) => ({
+//   delete: state.deleteTransaction.transactions
+// })
+
+export default connect(null, {  })(Transaction)

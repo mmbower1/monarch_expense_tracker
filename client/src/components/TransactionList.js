@@ -1,20 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// actions
-import { getTransactions } from '../actions/getTransactions';
 // components
 import Transaction from './Transaction';
 
-const TransactionList = ({ getTransactions }) => {
-    const initialState = {
-        transactions: []
-      }
+const TransactionList = ({ transactions }) => {
 
     return (
         <div>
             <h3>Transaction history</h3>
             <ul className="list">
-                {initialState.transactions.map(transaction => (
+                {transactions.map(transaction => (
                     <Transaction key={transaction.id} transaction={transaction} />
                 ))}
             </ul>
@@ -23,7 +18,7 @@ const TransactionList = ({ getTransactions }) => {
 }
 
 const mapStateToProps = (state) => ({
-    state: state
+    transactions: state.getTransactions.transactions
 });
 
-export default connect(mapStateToProps, getTransactions)(TransactionList)
+export default connect(mapStateToProps, { })(TransactionList)
