@@ -4,7 +4,7 @@ import { numberWithCommas } from '../utils/format';
 // actions
 import { deleteTransaction } from '../actions/deleteTransaction';
 
-const Transaction = ({ transaction }) => {
+const Transaction = ({ transaction, deleteTransaction }) => {
   console.log('transaction: ', transaction);
     const sign = transaction.amount < 0 ? '-' : '+';
     console.log('sign: ', sign)
