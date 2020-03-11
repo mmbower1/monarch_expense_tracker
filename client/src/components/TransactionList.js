@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import Transaction from './Transaction';
 
 const TransactionList = ({ transactions }) => {
-
     return (
         <div>
             <h3>Transaction history</h3>
@@ -18,7 +17,7 @@ const TransactionList = ({ transactions }) => {
 }
 
 const mapStateToProps = (state) => ({
-    transactions: state.getTransactions.transactions
+    transactions: state.addTransaction.transactions
 });
 
 export default connect(mapStateToProps, { })(TransactionList)

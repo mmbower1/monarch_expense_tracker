@@ -34,8 +34,7 @@ const IncomeExpense = ({ transactions }) => {
 }
 
 const mapStateToProps = (state) => ({
-    transactions: state.addTransaction.transactions,
-    console: console.log('income state: ', state.addTransaction.transactions),
+    transactions: state.addTransaction.transactions
 });
 
 export default connect(mapStateToProps, { })(IncomeExpense)

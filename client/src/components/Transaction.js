@@ -1,9 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { numberWithCommas } from '../utils/format';
+// actions
 import { deleteTransaction } from '../actions/deleteTransaction';
 
 const Transaction = ({ transaction }) => {
+  console.log('transaction: ', transaction);
     const sign = transaction.amount < 0 ? '-' : '+';
     console.log('sign: ', sign)
     return (
@@ -15,7 +17,7 @@ const Transaction = ({ transaction }) => {
 }
 
 // const mapStateToProps = (state) => ({
-//   delete: state.deleteTransaction.transactions
+//   transaction: state.addTransaction.transactions
 // })
 
-export default connect(null, {  })(Transaction)
+export default connect(null, { deleteTransaction })(Transaction)
