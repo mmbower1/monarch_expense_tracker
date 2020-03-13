@@ -8,6 +8,7 @@ export const getTransactions = () => async dispatch => {
             type: GET_TRANSACTIONS,
             payload: res.data.data
         })
+        
     } catch (err) {
         dispatch({
             type: TRANSACTION_ERROR,

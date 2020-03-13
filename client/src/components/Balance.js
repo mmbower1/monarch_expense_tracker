@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { numberWithCommas } from '../utils/format';
 
-const Balance = ({ transactions }) => {
-  const amounts = transactions.map(transaction => transaction.amount);
+const Balance = ({ getTx }) => {
+  const amounts = getTx.map(transaction => transaction.amount);
   const total = amounts.reduce((acc, item) => (acc += item), 0).toFixed(2);
 
   return (
@@ -15,7 +15,8 @@ const Balance = ({ transactions }) => {
 }
 
 const mapStateToProps = (state) => ({
-  transactions: state.addTransaction.transactions
+  // addTx: state.addTransaction.transactions,
+  getTx: state.getTransactions.transactions
 });
 
 export default connect(mapStateToProps, { })(Balance);

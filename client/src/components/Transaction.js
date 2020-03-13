@@ -5,9 +5,7 @@ import { numberWithCommas } from '../utils/format';
 import { deleteTransaction } from '../actions/deleteTransaction';
 
 const Transaction = ({ transaction, deleteTransaction }) => {
-  console.log('transaction: ', transaction);
     const sign = transaction.amount < 0 ? '-' : '+';
-    console.log('sign: ', sign)
     return (
       <li className={transaction.amount < 0 ? 'minus' : 'plus'}>
         {transaction.text} <span>{sign}${numberWithCommas(Math.abs(transaction.amount))}</span>
@@ -16,8 +14,8 @@ const Transaction = ({ transaction, deleteTransaction }) => {
     )
 }
 
-// const mapStateToProps = (state) => ({
-//   transaction: state.addTransaction.transactions
-// })
+const mapStateToProps = (state) => ({
+  delete: state.deleteTransaction.transactions
+})
 
-export default connect(null, { deleteTransaction })(Transaction)
+export default connect(mapStateToProps, { deleteTransaction })(Transaction)

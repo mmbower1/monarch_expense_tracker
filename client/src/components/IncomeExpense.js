@@ -2,8 +2,8 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { numberWithCommas } from '../utils/format';
 
-const IncomeExpense = ({ transactions }) => {
-    const amounts = transactions.map(transaction => transaction.amount);
+const IncomeExpense = ({ getTx }) => {
+    const amounts = getTx.map(transaction => transaction.amount);
 
     const income = amounts
         .filter(item => item > 0)
@@ -34,7 +34,7 @@ const IncomeExpense = ({ transactions }) => {
 }
 
 const mapStateToProps = (state) => ({
-    transactions: state.addTransaction.transactions
+    getTx: state.getTransactions.transactions
 });
 
 export default connect(mapStateToProps, { })(IncomeExpense)
