@@ -3,3 +3,10 @@ export const TRANSACTION_ERROR = 'TRANSACTION_ERROR';
 
 export const ADD_TRANSACTION = 'ADD_TRANSACTION';
 export const DELETE_TRANSACTION = 'DELETE_TRANSACTION';
+
+export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
+export const LOGIN_FAIL = 'LOGIN_FAIL';
+export const LOGOUT = 'LOGOUT';
+
+export const USER_LOADED = 'USER_LOADED';
+export const AUTH_ERROR = 'AUTH_ERROR';
